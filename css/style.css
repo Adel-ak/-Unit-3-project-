@@ -1,4 +1,4 @@
-Unit-3-project/* ================================= 
+/* ================================= 
   Base Element Styles
 ==================================== */
 
@@ -13,20 +13,20 @@ Unit-3-project/* =================================
   }
   
   body {
-	background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Hero.gif);
-	background-size: cover;
-	background-attachment: fixed;
-	font: 1em/1.5;
-	color: #ffffff;
+	  background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Hero.gif);
+	  background-size: cover;
+	  background-attachment: fixed;
+	  font: 1em/1.5;
+	  color: #ffffff;
   }
- 
+  
   header {
 	  text-align: center;  
   }
   
   h1 {
 	  font-size: 2.5em;
-	  text-shadow: 0 1px 0 rgba(72, 255, 0, 0.45);
+	  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 	  margin: 0;
   }
   
@@ -43,16 +43,14 @@ Unit-3-project/* =================================
 				   0px 8px 13px rgba(0,0,0,0.1),
 				   0px 18px 23px rgba(0,0,0,0.1);
   }
-
+  
   #content div{
 	color: rgb(0, 225, 255);
 	font-size: 1em;
 	background-color: rgb(5, 5, 5);
 	padding-left: 0;
 	box-shadow: 0 0 0 10px;
-	line-height: 2.2
-
-}
+	}
   
   /* ================================= 
 	Form Element Styles
@@ -60,9 +58,9 @@ Unit-3-project/* =================================
   
   form {
 	  padding: .875em 1.875em 1.875em;
-	  background: #ffc400;
+	  background: #c7b518;
 	  margin-bottom: 10%;
-	  border-radius: 20px;
+		border-radius: 20px;
   }
   
   fieldset,
@@ -102,8 +100,8 @@ Unit-3-project/* =================================
   
   input,
   select {
-	  margin-bottom: 1.125em;	
-	  border-radius: 20px;
+	  margin-bottom: 1.125em;
+	  border-radius: 20px;	
   }
   
   input {
@@ -111,8 +109,9 @@ Unit-3-project/* =================================
 	  font-weight: 500;
 	  padding: .8em;
 	  background: #c1deeb;
-	  border: 2px solid #0e0e0e;
+	  border: 2px solid #000000;
 	  outline: none;
+	  border-radius: 20px;
   }
   
   input:focus {
@@ -139,9 +138,6 @@ Unit-3-project/* =================================
   button:hover {
 	  background: #184c62;
   }
- #exp-top{
-	 margin-top: 4.700em; 
- }
   
   /* ================================= 
 	Page Styles
