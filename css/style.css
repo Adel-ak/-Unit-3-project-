@@ -1,7 +1,6 @@
 /* ================================= 
   Base Element Styles
 ==================================== */
-
 * {
 	box-sizing: border-box;
   }
@@ -9,25 +8,25 @@
   body,
   input,
   button {
-   font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
   }
   
   body {
-	  background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Hero.gif);
-	  background-size: cover;
-	  background-attachment: fixed;
-	  font: 1em/1.5;
-	  color: #ffffff;
+	background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Hero.gif);
+	background-size: cover;
+	background-attachment: fixed;
+	font: 1em/1.5;
+	color: #ffffff;
   }
   
   header {
-	  text-align: center;  
+	text-align: center;
   }
   
   h1 {
-	  font-size: 2.5em;
-	  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
-	  margin: 0;
+	font-size: 2.5em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+	margin: 0;
   }
   
   a {
@@ -35,138 +34,166 @@
   }
   
   #content {
-	  position: center;
-	  text-align: center;
-	  padding-top: 10%;
-	  color: rgb(0, 225, 255);
-	  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-				   0px 8px 13px rgba(0,0,0,0.1),
-				   0px 18px 23px rgba(0,0,0,0.1);
+	position: center;
+	text-align: center;
+	padding-top: 10%;
+	color: rgb(0, 225, 255);
+	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+	  0px 8px 13px rgba(0, 0, 0, 0.1),
+	  0px 18px 23px rgba(0, 0, 0, 0.1);
   }
   
-  #content div{
+  #content div {
 	color: rgb(0, 225, 255);
 	font-size: 1em;
 	background-color: rgb(5, 5, 5);
 	padding-left: 0;
 	box-shadow: 0 0 0 10px;
-	}
+  }
   
   /* ================================= 
-	Form Element Styles
-  ==================================== */
+	  Form Element Styles
+	==================================== */
+	button[type='click']{
+		/* text-size-adjust:  */
+    font-size: .82em;
+    float: right;
+	
+	}
+	#boxMX{
+    display:none;
+    background: #c7b518;
+    padding: 10px;
+    border: 2px solid rgb(255, 0, 0);
+    float: left;
+    font-size: 1.2em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 0px 20px #999;
+    border-radius:6px 6px 6px 6px;
+    font:13px;
+    padding:px 6px 4px;
+    width:400px;
+		color: white;
+		padding-bottom: 0;
+	}
+	
+  div .ui-widget{
+	background: #c1deeb;
+	border-radius: 20px;
+	border: 2px solid #000000;
+	}
   
   form {
-	  padding: .875em 1.875em 1.875em;
-	  background: #c7b518;
-	  margin-bottom: 10%;
-		border-radius: 20px;
+	padding: .875em 1.875em 1.875em;
+	background: #c7b518;
+	margin-bottom: 10%;
+	border-radius: 20px;
   }
   
   fieldset,
   legend,
   button {
-	  padding: 0;
-	  border: none;
+	padding: 0;
+	border: none;
   }
   
   fieldset {
-	  margin-top: 1.5em;
+	margin-top: 1.5em;
   }
   
   legend,
   button {
-	  font-size: 1.25em;	
+	font-size: 1.25em;
   }
   
   legend {
-	  font-weight: 500;
-	  padding-top: .5em;
-	  border-top: 2px solid #679cb3;
-	  margin-bottom: 1.125em;
+	font-weight: 500;
+	padding-top: .5em;
+	border-top: 2px solid #679cb3;
+	margin-bottom: 1.125em;
   }
   
   input[type="text"],
   input[type="email"],
   legend {
-	  width: 100%;
+	width: 100%;
   }
   
   label {
-	  color: #000;
-	  display: block;
-	  margin-bottom: .5em;
+	color: #000;
+	display: block;
+	margin-bottom: .5em;
   }
   
   input,
   select {
-	  margin-bottom: 1.125em;
-	  border-radius: 20px;	
+	margin-bottom: 1.125em;
+	border-radius: 20px;
   }
   
   input {
-	  font-size: 1em;
-	  font-weight: 500;
-	  padding: .8em;
-	  background: #c1deeb;
-	  border: 2px solid #000000;
-	  outline: none;
-	  border-radius: 20px;
+	font-size: 1em;
+	font-weight: 500;
+	padding: .8em;
+	background: #c1deeb;
+	border: 2px solid #000000;
+	outline: none;
+	border-radius: 20px;
   }
   
   input:focus {
-	  background: #fff;
-	  border-color: #5e97b0;
-	  transition: border-color .4s, background-color .4s;
+	background: #fff;
+	border-color: #5e97b0;
+	transition: border-color .4s, background-color .4s;
   }
   
   input[type="checkbox"],
   input[type="radio"] {
-	  display: inline-block;
-	  border-radius: 20px;
+	display: inline-block;
+	border-radius: 20px;
   }
   
   button {
-	  color: #fff;
-	  padding: .55em 1.25em;
-	  background: #22627e;
-	  margin: 1.25em 0 .5em;
-	  cursor: pointer;
-	  border-radius: 20px;
+	color: #fff;
+	padding: .55em 1.25em;
+	background: #22627e;
+	margin: 1.25em 0 .5em;
+	cursor: pointer;
+	border-radius: 20px;
   }
   
   button:hover {
-	  background: #184c62;
+	background: #184c62;
   }
   
   /* ================================= 
-	Page Styles
-  ==================================== */
-  
+	  Page Styles
+	==================================== */
   .container {
-	  margin: auto;
-	  max-width: 680px;
+	margin: auto;
+	max-width: 680px;
   }
   
   .shirt div {
-	  float: left;
-	  margin-right: .85em;
+	float: left;
+	margin-right: .85em;
   }
   
   .interests input {
-	  margin-bottom: 0;
+	margin-bottom: 0;
   }
   
   .credit-card {
-	  margin-top: 1.25em;
+	margin-top: 1.25em;
   }
   
   /* ================================= 
-	Helper Classes
-  ==================================== */
-  
+	  Helper Classes
+	==================================== */
   .is-hidden {
-	  display: none;
+	display: none;
   }
   
   .clearfix::after {
@@ -176,32 +203,36 @@
   }
   
   /* ================================= 
-	Media Queries
-  ==================================== */
-  
+	  Media Queries
+	==================================== */
   @media (min-width: 0) and (max-width: 679px) {
-	  header {
-		  padding: 2em 0;
-	  }
-	  button {
-		  width: 100%;
-	  }
+	header {
+	  padding: 2em 0;
+	}
+  
+	button {
+	  width: 100%;
+	}
   }
   
   @media (min-width: 680px) {
-	  header {
-		  padding: 4.65em 0 2.5em;
-	  }
-	  .col {
-		  float: left;
-	  }
-	  .col + .col {
-		  margin-left: 2.5%;
-	  }
-	  .col-3 {
-		  width: 23%;
-	  }
-	  .col-6 {
-		  width: 49%;
-	  }
+	header {
+	  padding: 4.65em 0 2.5em;
+	}
+  
+	.col {
+	  float: left;
+	}
+  
+	.col+.col {
+	  margin-left: 2.5%;
+	}
+  
+	.col-3 {
+	  width: 23%;
+	}
+  
+	.col-6 {
+	  width: 49%;
+	}
   }
