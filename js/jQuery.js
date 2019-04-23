@@ -74,7 +74,10 @@ $registerButton.on('click', function(e) {
     } else if($paymentSelector.val() === "bitcoin") {
       window.open('https://www.coinbase.com/','_blank');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     setInterval(function(){location.reload()},5000);
   }
 });
