@@ -31,6 +31,12 @@ register button event listenr(click):-
 ~~loop through all inputs and match its given id and check if input is valid or not
   if input field of Job Role and credit card is visible check if input is valid or not
 
+~~check if checked input lenght is 0
+    if true add error class name to disply message of invalid
+    and keep done variable fales
+  
+~~if false remove the error class name and change done variable to true
+
 ~~if done is true then submit form then hide the form and show submitedForm message
   but if payment type is paypal or bitcoin then open payment onlick
 
@@ -38,26 +44,28 @@ register button event listenr(click):-
 */
 $registerButton.on('click', function(e) {
   e.preventDefault();
-  let checked = document.querySelectorAll('.checked');
   $inputs.each(function(index,ele) {
-    $form.checkBeforeSubmit(ele, name, "name", "name_error");
-    $form.checkBeforeSubmit(ele, mail, "mail", "emal_error");
+    $form.checkBeforeSubmit(ele, name, "name", "name_error", 'Required');
+    $form.checkBeforeSubmit(ele, mail, "mail", "emal_error", 'Required');
     if($jobRole.is(':visible')) {
-      $form.checkBeforeSubmit(ele, otherJob,"other-title", "otherjob_error");
+      $form.checkBeforeSubmit(ele, otherJob,"other-title", "otherjob_error", 'Required');
     }
     if($('#credit-card').is(':visible')) {
-      $form.checkBeforeSubmit(ele, ccNum,"cc-num", "cc_error");
-      $form.checkBeforeSubmit(ele, zip, "zip", "zip_error");
-      $form.checkBeforeSubmit(ele, cvv, "cvv", "cvv_error");
+      $form.checkBeforeSubmit(ele, ccNum,"cc-num", "cc_error", 'Required');
+      $form.checkBeforeSubmit(ele, zip, "zip", "zip_error", 'Required');
+      $form.checkBeforeSubmit(ele, cvv, "cvv", "cvv_error", 'Required');
     }
   });
-  if(checked.length <= 0) {
-    $('.activities legend').addClass('activities_error');
+
+  if($('.activities input:checked').length === 0) {
+    $('.activities legend')
+    .addClass('activities_error')
+    .attr('activities_error'," - Selection is Required");;
     done = false;
   } else {
     $('.activities legend').removeClass('activities_error');
-    done = true;
   }
+
   if(done) {
     $('.container').toggle("clip");
     $submitedForm.delay(600).fadeIn("slow");
@@ -66,7 +74,8 @@ $registerButton.on('click', function(e) {
     } else if($paymentSelector.val() === "bitcoin") {
       window.open('https://www.coinbase.com/','_blank');
     }
-    // setInterval(function(){location.reload()},5000);//this will reload the page 
+
+    setInterval(function(){location.reload()},5000);
   }
 });
 
@@ -77,15 +86,15 @@ inputs event listenr(keyup):-
 */
 $inputs.each(function() {
   $(this).on('keyup', function() {
-    $form.check(name, this, "name", "name_error");
-    $form.check(mail, this, "mail", "emal_error");
+    $form.check(name, this, "name", "name_error"," - Name can only contain latters and spaces");
+    $form.check(mail, this, "mail", "emal_error"," - Invailed Email");
     if($jobRole.is(':visible')) {
-      $form.check(otherJob, this, "other-title", "otherjob_error");
+      $form.check(otherJob, this, "other-title", "otherjob_error"," - only latters and spaces are allowed");
     }
     if($('#credit-card').is(':visible')) {
-      $form.check(ccNum, this, "cc-num", "cc_error");
-      $form.check(zip, this, "zip", "zip_error");
-      $form.check(cvv, this, "cvv", "cvv_error");
+      $form.check(ccNum, this, "cc-num", "cc_error"," - 12 to 13 Digits");
+      $form.check(zip, this, "zip", "zip_error"," - 5 Digits");
+      $form.check(cvv, this, "cvv", "cvv_error"," - 3 Digits");
     }
   });
 });
@@ -102,27 +111,39 @@ $inputs.each(function() {
 ~~if any box is unchecked then remove 100 from total multiplying with the new length
   of checked class
 
+~~check if checked input lenght is 0
+    if true add error class name to disply message of invalid
+    and keep done variable fales
+  
+~~if false remove the error class name and change done variable to true
+
 ~~append the new div to the page
 */
 $checkBox.on('change', function() {
-  const $200CheckBox = document.querySelector('.activities label input');
-  $('.activities legend').removeClass('activities_error');
   $('div span').remove();
-  $form.checkBoxDisable(1, 3, 3)
-  $form.checkBoxDisable(3, 1, 1)
-  $form.checkBoxDisable(2, 4, 4)
-  $form.checkBoxDisable(4, 2, 2)
+  $form.checkBoxDisable(1, 3, 3);
+  $form.checkBoxDisable(3, 1, 1);
+  $form.checkBoxDisable(2, 4, 4);
+  $form.checkBoxDisable(4, 2, 2);
   if($(this).is(':checked')) {
     $(this).addClass('checked');
     total = 100 * $('.checked').length;
     if($checkBox.eq(0).is(':checked')) {
     total = 100 * ($('.checked').length + 1);
-  } else {
+    } else {
     total += 0;
-  }
+    }
   } else if($(this).not(':checked')) {
     $(this).removeClass('checked');
     total = 100 * $('.checked').length;
+  }
+  
+  if($('.activities input:checked').length === 0){
+    $('.activities legend')
+    .addClass('activities_error')
+    .attr('activities_error'," - one or more should be selected");
+  }else{
+    $('.activities legend').removeClass('activities_error');
   }
   
   $('.activities').append(`<span>Total: <strong>$${total}</strong></span>`);
@@ -158,9 +179,9 @@ $('#payment').change(function() {
   const cc = $('#credit-card');
   const paypal = $('#credit-card').next();
   const Bitcoin = $('#credit-card').next().next();
-  $form.paymentInfo(this, "credit card", cc, paypal, Bitcoin)
-  $form.paymentInfo(this, "paypal", paypal, cc, Bitcoin)
-  $form.paymentInfo(this, "bitcoin", Bitcoin, paypal, cc)
+  $form.paymentInfo(this, "credit card", cc, paypal, Bitcoin);
+  $form.paymentInfo(this, "paypal", paypal, cc, Bitcoin);
+  $form.paymentInfo(this, "bitcoin", Bitcoin, paypal, cc);
   if($('#credit-card').is(':hidden')) {
     $('#cc-num').prev().removeClass("cc_error");
     $('#zip').prev().removeClass("zip_error");
@@ -181,8 +202,8 @@ $('select[name="user_design"]').change(function() {
   if($(this).val() === "Select Theme") {
     $('#colors-js-puns').hide();
   }
-  $form.tShirtInfo(this, "heart js",iHeartJsColor, jsPunsColor,'tomato')
-  $form.tShirtInfo(this, "js puns",jsPunsColor, iHeartJsColor,'cornflowerblue')
+  $form.tShirtInfo(this, "heart js",iHeartJsColor, jsPunsColor,'tomato');
+  $form.tShirtInfo(this, "js puns",jsPunsColor, iHeartJsColor,'cornflowerblue');
 });
 
 //functions held in a object
@@ -196,17 +217,12 @@ const $form = {
   
   ~~if false remove the error class name not to disply 
     message of invalid and change done variable to true
-  
-  ~~check if checkbox with class name checked lenght is 0
-    if true add error class name to disply message of invalid
-    and keep done variable fales
-  
-  ~~if false remove the error class name and change done variable to true
   */
-    checkBeforeSubmit: function(e, expertion, id, error) {
+    checkBeforeSubmit: function(e, expertion, id, error, errorText) {
       if($(e).attr('id') === id && $(e).is(':visible') && !expertion.test($(e).val()) && $(e).val()==='') {
-      $(e).effect("bounce", "slow").css('borderColor', 'red');
-      $(e).prev().addClass(error);
+      $(e).css('borderColor', 'red');      
+      $(e).effect("bounce", "slow");
+      $(e).prev().addClass(error).attr(error,errorText);
       done = false;
       } else {
       $(e).prev().removeClass(error);
@@ -222,19 +238,19 @@ const $form = {
     changing done variable
     checking if checkbox's is checked or not
   */               
-    check: function(expertion, e, id,error) {
+    check: function(expertion, e, id,error,errorText) {
       if($(e).attr('id') === id) {
         if(expertion.test($(e).val())) {
           $(e).css('borderColor', 'green');
           $(e).prev().removeClass(error);
         } else {
-          $(e).prev().addClass(error);
+          $(e).prev().addClass(error).attr(error,errorText);
           $(e).css('borderColor', 'red');
           done = false;
         }
         if($(e).val() === "") {
-          $(e).css('borderColor', '');
-          $(e).prev().removeClass(error);
+          $(e).prev().addClass(error).attr(error,"Required");
+          // $(e).prev().removeClass(error);
         }
       }
     },
@@ -247,6 +263,7 @@ const $form = {
       $checkBox.eq(check).is(':checked') ?
       $checkBox.eq(disable).prop("disabled", true):
       $checkBox.eq(enable).removeAttr("disabled");
+      
     },
   
   /*
@@ -275,7 +292,7 @@ const $form = {
   
   //things that will be done when page is loaded
     startUp: function() {
-      $('#name').attr('autofocus',true);
+      $('#name').focus();
       $('#colors-js-puns').hide();
       $('#test').hide();
       $('input[id="other-title"]').hide();

@@ -63,11 +63,14 @@ margin-top: 12%;
 p strong{
 color: #c7b518;
 }
-
+/*
+content: attr(name_error) idea from link below
+https://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin
+*/
 .name_error:after {
 margin-left: 10px;
 font-size: 16px;
-content: " - Name can only contain latters and spaces";
+content: attr(name_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -77,7 +80,7 @@ padding: 0 10px 0 5px
 .emal_error:after {
 margin-left: 10px;
 font-size: 16px;
-content: " - Invailed Email";
+content: attr(emal_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -87,7 +90,7 @@ padding: 0 10px 0 5px
 .otherjob_error:after {
 margin-left: 10px;
 font-size: 16px;
-content: " - only latters and spaces are allowed";
+content: attr(otherjob_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -97,7 +100,7 @@ padding: 0 10px 0 5px
 .activities_error:after {
 margin-left: 10px;
 font-size: 16px;
-content: " - one or more should be selected";
+content: attr(activities_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -106,7 +109,7 @@ padding: 0 10px 0 5px
 
 .cc_error:after { 
 margin-left: 10px;
-content: " - Invailed";
+content: attr(cc_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -116,7 +119,7 @@ padding: 0 10px 0 5px
 .zip_error:after { 
 margin-left: 0px;
 font-size: 16px;
-content: " - Invailed";
+content: attr(zip_error);
 color: black;
 background-color: red;
 border-radius: 20px;
@@ -126,7 +129,7 @@ padding: 0 10px 0 5px
 .cvv_error:after {
 margin-left: 10px;
 font-size: 16px;
-content: " - Invailed";
+content: attr(cvv_error);
 color: black;
 background-color: red;
 border-radius: 20px;
