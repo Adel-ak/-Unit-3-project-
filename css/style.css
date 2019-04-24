@@ -15,6 +15,8 @@ body {
 background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2017/10/Code-on-Computer-Screen-Hero.gif);
 background-size: cover;
 background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center; 
 font: 1em/1.5;
 color: #ffffff;
 }

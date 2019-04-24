@@ -11,7 +11,7 @@ let done = false;
 const name = /^[a-z /D]+$/i;
 const mail = /[^@. ]+@[^@. ]+\.[^@. ]+/i;
 const otherJob = /^[a-z /D]+$/i;
-const ccNum = /^\d{12,13}$/;
+const ccNum = /^\d{13,16}$/;
 const zip = /^\d{5}$/;
 const cvv = /^\d{3}$/;
 
@@ -74,10 +74,6 @@ $registerButton.on('click', function(e) {
     } else if($paymentSelector.val() === "bitcoin") {
       window.open('https://www.coinbase.com/','_blank');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     setInterval(function(){location.reload()},5000);
   }
 });
@@ -95,7 +91,7 @@ $inputs.each(function() {
       $form.check(otherJob, this, "other-title", "otherjob_error"," - only latters and spaces are allowed");
     }
     if($('#credit-card').is(':visible')) {
-      $form.check(ccNum, this, "cc-num", "cc_error"," - 12 to 13 Digits");
+      $form.check(ccNum, this, "cc-num", "cc_error"," - 13 to 16 Digits");
       $form.check(zip, this, "zip", "zip_error"," - 5 Digits");
       $form.check(cvv, this, "cvv", "cvv_error"," - 3 Digits");
     }
